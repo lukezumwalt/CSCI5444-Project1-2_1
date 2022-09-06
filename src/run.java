@@ -10,7 +10,7 @@ public class run {
         Reader io = new Reader();
         Analyzer inspect = new Analyzer();
 
-        // Owned by main class, passed between inherited classes.
+        // Owned by main class, passed between imported classes.
         ArrayList<Integer> myNumbers = new ArrayList<>();
 
         io.loopForInput( myNumbers );

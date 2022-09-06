@@ -17,7 +17,7 @@ public class Analyzer {
         System.out.println( "Standard Deviation: " + standardDeviation(numbers) );
         System.out.println( "Minimum Value: " + minimumValue(numbers)[0] );
         System.out.println( "Maximum Value: " + maximumValue(numbers)[0] );
-        System.out.println( "Maximum Occurrence: " + Arrays.toString(mode(numbers))/*maxOccurence(numbers)*/ );
+        System.out.println( "Maximum Occurrence: " + Arrays.toString(mode(numbers)) );
     }
 
     public static double mean(ArrayList<Integer> numbers)
@@ -125,12 +125,4 @@ public class Analyzer {
         int[] retVal = {max, maxIndex};
         return retVal;
     }
-//    //max occurrences (value and count)
-//    //call mode, overload output to also provide occurrence count
-//    public static int maxOccurrence(ArrayList<Integer> numbers)
-//    {
-////        int[] retVal = {mode(numbers), }
-////        return mode(numbers);
-//        return 0;
-//    }
 }
