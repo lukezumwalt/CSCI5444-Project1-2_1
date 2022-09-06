@@ -2,11 +2,11 @@
 ### Lukas Zumwalt
 * Java Version: openjdk-18.0.2.1
 
-> This compiled Java package serves to meet CU Boulder course requirements for CSCI 5444 Project 1.2, Program 1
+> This compiled package serves to meet CU Boulder course requirements for CSCI 5444 Project 1.2, Program 1
 
 
 
-## This package conducts a statistical analysis on an incrementally provided set of integers.
+### This package conducts a statistical analysis on an incrementally provided set of integers.
 
 ```
 + Mean
