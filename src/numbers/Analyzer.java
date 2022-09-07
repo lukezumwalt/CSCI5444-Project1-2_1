@@ -5,7 +5,7 @@ import static java.lang.Math.*;
 
 public class Analyzer {
 
-    public void analyze( ArrayList<Integer> numbers )
+    public void analyze( ArrayList<Double> numbers )
     {
         System.out.println( "+------------------------------------------------+");
         System.out.println( "| Reporting Statistical Analysis on Provided Set |");
@@ -20,32 +20,30 @@ public class Analyzer {
         System.out.println( "Maximum Occurrence: " + Arrays.toString(mode(numbers)) );
     }
 
-    public static double mean(ArrayList<Integer> numbers)
+    private static double mean(ArrayList<Double> numbers)
     {
         double sum = 0;
         int count = numbers.size();
-        for( int i = 0; i < count; ++i )
-        {
-            sum += numbers.get(i);
+        for (Double number : numbers) {
+            sum += number;
         }
         return sum/count;
     }
 
-    public static double median(ArrayList<Integer> numbers)
+    private static double median(ArrayList<Double> numbers)
     {
-        ArrayList<Integer> temp = numbers;
-        temp.sort(Comparator.naturalOrder());
-        if( temp.size() % 2 == 1)
+        numbers.sort(Comparator.naturalOrder());
+        if( numbers.size() % 2 == 1)
         {
             // odd size
-            return temp.get( (int)floor( temp.size()/2 ) );
+            return numbers.get( (int)floor( numbers.size()/2. ) );
         }
         else
         {
             // even size
-            int i2 = temp.get( temp.size()/2 );
-            int i1 = temp.get( temp.size()/2 - 1 );
-            ArrayList<Integer> interim = new ArrayList<Integer>();
+            double i2 = numbers.get( numbers.size()/2 );
+            double i1 = numbers.get( numbers.size()/2 - 1 );
+            ArrayList<Double> interim = new ArrayList<>();
             interim.add(i1);
             interim.add(i2);
             return mean( interim );
@@ -53,50 +51,42 @@ public class Analyzer {
 
     }
 
-    public static int[] mode(ArrayList<Integer> numbers)
+    private static double[] mode(ArrayList<Double> numbers)
     {
-        HashMap<Integer, Integer> modeTable = new HashMap<Integer, Integer>();
-        int entry;
-        for(int i = 0; i < numbers.size(); ++i )
-        {
-            entry = numbers.get(i);
-            if(modeTable.get(entry) == null )
-            {
-                modeTable.put(entry,0);
-            }
-            modeTable.put(entry, modeTable.get(entry)+1);
+        HashMap<Double, Double> modeTable = new HashMap<>();
+        double entry;
+        for (Double number : numbers) {
+            entry = number;
+            modeTable.putIfAbsent(entry, 0.0);
+            modeTable.put(entry, modeTable.get(entry) + 1);
         }
 
         // Objects to help parse dictionary results and pass them between methods.
-        ArrayList<Integer> valueList = new ArrayList<Integer>();
-        ArrayList<Integer> keyList = new ArrayList<Integer>();
-        valueList.addAll(modeTable.values());
-        keyList.addAll(modeTable.keySet());
+        ArrayList<Double> valueList = new ArrayList<>(modeTable.values());
+        ArrayList<Double> keyList = new ArrayList<>(modeTable.keySet());
 
-        int[] maxFrequency = maximumValue( valueList );
-        int[] retVal = {keyList.get(maxFrequency[1]), valueList.get(maxFrequency[1])};
-        return retVal;
+        double[] maxFrequency = maximumValue( valueList );
+        return new double[]{keyList.get((int)maxFrequency[1]), valueList.get((int)maxFrequency[1])};
     }
 
-    public static double variance(ArrayList<Integer> numbers)
+    private static double variance(ArrayList<Double> numbers)
     {
         double s = mean(numbers);
         double l_sum = 0;
-        for(int i = 0; i< numbers.size(); ++i )
-        {
-            l_sum += pow( numbers.get(i) - s, 2);
+        for (Double number : numbers) {
+            l_sum += pow(number - s, 2);
         }
         return l_sum/(numbers.size()-1);
     }
 
-    public static double standardDeviation(ArrayList<Integer> numbers)
+    private static double standardDeviation(ArrayList<Double> numbers)
     {
         return sqrt(variance(numbers));
     }
 
-    public static int[] minimumValue(ArrayList<Integer> numbers)
+    private static double[] minimumValue(ArrayList<Double> numbers)
     {
-        int min = numbers.get(0);
+        double min = numbers.get(0);
         int minIndex = 0;
         for(int i = 0; i < numbers.size(); ++i )
         {
@@ -106,13 +96,12 @@ public class Analyzer {
                 minIndex = i;
             }
         }
-        int[] retVal = {min, minIndex};
-        return retVal;
+        return new double[]{min, minIndex};
     }
 
-    public static int[] maximumValue(ArrayList<Integer> numbers)
+    private static double[] maximumValue(ArrayList<Double> numbers)
     {
-        int max = numbers.get(0);
+        double max = numbers.get(0);
         int maxIndex = 0;
         for(int i = 0; i < numbers.size(); ++i )
         {
@@ -122,7 +111,6 @@ public class Analyzer {
                 maxIndex = i;
             }
         }
-        int[] retVal = {max, maxIndex};
-        return retVal;
+        return new double[]{max, maxIndex};
     }
 }

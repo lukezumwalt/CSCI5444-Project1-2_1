@@ -1,0 +1,83 @@
+____________________________________
+TEST RUN ONE: ONLY INTEGERS PROVIDED
+____________________________________
+
+Enter Number: -1
+
+Currently: [-1.0]
+Enter Number: -1
+
+Currently: [-1.0, -1.0]
+Enter Number: 0
+
+Currently: [-1.0, -1.0, 0.0]
+Enter Number: 1
+
+Currently: [-1.0, -1.0, 0.0, 1.0]
+Enter Number: 5
+
+Currently: [-1.0, -1.0, 0.0, 1.0, 5.0]
+Enter Number: 101
+
+Currently: [-1.0, -1.0, 0.0, 1.0, 5.0, 101.0]
+Enter Number:
+
+Processing...
+
++------------------------------------------------+
+| Reporting Statistical Analysis on Provided Set |
++------------------------------------------------+
+Mean: 17.5
+Median: 0.5
+Mode: -1.0
+Variance: 1678.3
+Standard Deviation: 40.96705993844323
+Minimum Value: -1.0
+Maximum Value: 101.0
+Maximum Occurrence: [-1.0, 2.0]
+
+Process finished with exit code 0
+
+
+_________________________________________
+TEST RUN TWO: REAL, NON-INTEGERS PROVIDED
+_________________________________________
+
+Enter Number: -6.6
+
+Currently: [-6.6]
+Enter Number: -1.1245
+
+Currently: [-6.6, -1.1245]
+Enter Number: 0
+
+Currently: [-6.6, -1.1245, 0.0]
+Enter Number: 0
+
+Currently: [-6.6, -1.1245, 0.0, 0.0]
+Enter Number: .14
+
+Currently: [-6.6, -1.1245, 0.0, 0.0, 0.14]
+Enter Number: 24.055
+
+Currently: [-6.6, -1.1245, 0.0, 0.0, 0.14, 24.055]
+Enter Number: 71.2
+
+Currently: [-6.6, -1.1245, 0.0, 0.0, 0.14, 24.055, 71.2]
+Enter Number:
+
+Processing...
+
++------------------------------------------------+
+| Reporting Statistical Analysis on Provided Set |
++------------------------------------------------+
+Mean: 12.524357142857143
+Median: 0.0
+Mode: 0.0
+Variance: 765.8184120595239
+Standard Deviation: 27.67342429226141
+Minimum Value: -6.6
+Maximum Value: 71.2
+Maximum Occurrence: [0.0, 2.0]
+
+Process finished with exit code 0

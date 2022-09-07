@@ -11,7 +11,7 @@ public class run {
         Analyzer inspect = new Analyzer();
 
         // Owned by main class, passed between imported classes.
-        ArrayList<Integer> myNumbers = new ArrayList<>();
+        ArrayList<Double> myNumbers = new ArrayList<>();
 
         io.loopForInput( myNumbers );
         inspect.analyze( myNumbers );
